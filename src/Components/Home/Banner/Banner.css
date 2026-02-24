@@ -1,0 +1,172 @@
+/* ==========================================
+   ARTIFEX — BANNER SECTION
+   ========================================== */
+
+.banner {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  height: 26rem;
+  padding: 0 120px;
+  margin: 80px 0;
+  grid-gap: 12px;
+}
+
+.bannerLeft,
+.bannerRight {
+  position: relative;
+  overflow: hidden;
+  cursor: pointer;
+}
+
+.bannerLeft {
+  background-image: url("../../../Assets/Banner/banner_1.jpg");
+  background-position: center;
+  background-size: cover;
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-end;
+  padding: 36px;
+  gap: 8px;
+  transition: background-size 0.6s ease;
+}
+
+.bannerRight {
+  background-image: url("../../../Assets/Banner/banner_2.jpg");
+  background-position: center;
+  background-size: cover;
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-end;
+  padding: 36px;
+  gap: 8px;
+  transition: background-size 0.6s ease;
+}
+
+/* Dark overlay */
+.bannerLeft::after,
+.bannerRight::after {
+  content: '';
+  position: absolute;
+  inset: 0;
+  background: linear-gradient(to top,
+      rgba(0, 0, 0, 0.72) 0%,
+      rgba(0, 0, 0, 0.15) 60%,
+      transparent 100%);
+  transition: opacity 0.4s ease;
+}
+
+.bannerLeft:hover::after,
+.bannerRight:hover::after {
+  opacity: 0.85;
+}
+
+.bannerLeft:hover,
+.bannerRight:hover {
+  background-size: 108%;
+}
+
+/* All text above overlay */
+.bannerLeft>*,
+.bannerRight>* {
+  position: relative;
+  z-index: 1;
+}
+
+/* Gold top accent line on hover */
+.bannerLeft::before,
+.bannerRight::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  height: 2px;
+  background: linear-gradient(90deg, transparent, #c9a84c, transparent);
+  opacity: 0;
+  transition: opacity 0.4s ease;
+  z-index: 2;
+}
+
+.bannerLeft:hover::before,
+.bannerRight:hover::before {
+  opacity: 1;
+}
+
+/* Text Styles */
+.bannerh6 {
+  color: #c9a84c !important;
+  text-transform: uppercase;
+  font-size: 10px;
+  font-weight: 600;
+  letter-spacing: 3px;
+  font-family: 'Inter', sans-serif;
+}
+
+.bannerh3 {
+  font-family: 'Cormorant Garamond', Georgia, serif;
+  color: #f5f0e8 !important;
+  font-size: 30px;
+  font-weight: 300;
+  font-style: italic;
+  line-height: 1.2;
+}
+
+.bannerh5 {
+  font-size: 10px;
+  text-transform: uppercase;
+  font-weight: 600;
+  letter-spacing: 2.5px;
+  margin-top: 8px;
+  font-family: 'Inter', sans-serif;
+}
+
+.bannerh5 a {
+  text-decoration: none;
+  color: rgba(245, 240, 232, 0.85);
+  position: relative;
+  padding: 10px 22px;
+  border: 1px solid rgba(201, 168, 76, 0.4);
+  display: inline-block;
+  transition: all 0.3s ease;
+  background: rgba(10, 10, 10, 0.35);
+  backdrop-filter: blur(4px);
+}
+
+.bannerh5 a::after {
+  display: none;
+}
+
+.bannerh5 a:hover {
+  border-color: #c9a84c;
+  color: #c9a84c;
+}
+
+@media screen and (max-width: 1210px) {
+  .banner {
+    grid-gap: 12px;
+    padding: 0 60px;
+    height: 22rem;
+    margin: 60px 0;
+  }
+}
+
+@media screen and (max-width: 768px) {
+  .banner {
+    padding: 0 40px;
+  }
+}
+
+@media screen and (max-width: 450px) {
+  .banner {
+    padding: 0 20px;
+    grid-template-columns: 1fr;
+    grid-gap: 8px;
+    height: auto;
+    margin: 48px 0;
+  }
+
+  .bannerLeft,
+  .bannerRight {
+    height: 200px;
+  }
+}
